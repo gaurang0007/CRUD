@@ -1,0 +1,177 @@
+<html>
+  <head>
+    <title>CRUD Demo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="crud1.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="crud1.js"></script>
+  </head>
+
+  <body onload="init()">
+    <div class="container" style="width: 60%">
+      <div class="top form-inline">
+        <button class="btn btn-success" id="btn1">
+          <i class="fa fa-plus mr-2"></i>Add more user
+        </button>
+        <div class="ml-auto">
+          Search by name:
+          <input
+            type="text"
+            id="search1"
+            onkeyup="mySearch();"
+            class="form-control"
+            placeholder="Type name to search"
+          />
+        </div>
+      </div>
+
+      <div>
+        <table class="table table-striped" id="userlist">
+          <thead style="text-align: center">
+            <tr>
+              <th>Name</th>
+              <th>Contry</th>
+              <th>Salary</th>
+              <th>Email</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody style="text-align: center" id="search2">
+          </tbody>
+          <tfoot id="tfooter">
+          </tfoot>
+        </table>
+      </div>
+
+      <h3 id="hide2">Add user</h3>
+      <h3 id="hide3">Edit user</h3>
+
+      <div id="hide">
+        <form id="user_form" method="POST" onsubmit="readFormData();">
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control enable"
+              id="name"
+              placeholder="Edit name"
+              name="name"
+              onkeyup="namefocusout1();"
+              onfocusout="namefocusout1();"
+              required
+            />
+            <div id="divi1" style="display: none"></div>
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <input
+              type="text"
+              class="form-control enable"
+              id="country"
+              placeholder="Edit country"
+              name="country"
+              onkeyup="namefocusout2();"
+              onfocusout="namefocusout2();"
+              required
+            />
+            <div id="divi2" style="display: none"></div>
+          </div>
+          <div class="form-group">
+            <label>Salary</label>
+            <input
+              type="number"
+              class="form-control enable"
+              id="salary"
+              placeholder="Edit salary"
+              name="salary"
+              onkeyup="namefocusout3();"
+              onfocusout="namefocusout3();"
+              required
+            />
+            <div id="divi3" style="display: none"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control enable"
+              id="email"
+              placeholder="Edit email"
+              name="email"
+              onkeyup="namefocusout4();"
+              onfocusout="namefocusout4();"
+              required
+            />
+            <div id="divi4" style="display: none"></div>
+          </div>
+          <button type="submit" class="btn btn-primary" value="submit" id="sub">
+            <i class="fa fa-pencil mr-2" aria-hidden="true"></i>Save change
+          </button>
+          <button
+            type="reset"
+            class="btn btn-primary"
+            onclick="reset()"
+            value="cancle"
+            id="sub1"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Alert !!!</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure to delete this record ?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              id="delbtn"
+              type="button"
+              onClick="onDelete()"
+              class="btn btn-primary"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

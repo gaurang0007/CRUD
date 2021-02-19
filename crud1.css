@@ -1,0 +1,22 @@
+.top {
+  margin: 50px 0 30px 0;
+}
+
+#hide,#hide2,#hide3 {
+  display: none;
+}
+
+#totalsalary{
+  text-align: center;
+}
+
+#divi1, #divi2, #divi3, #divi4{
+  color: #B35958;
+  border-radius: 3px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #EBCCD1;
+  background-color: #F2DEDE;
+
+}
